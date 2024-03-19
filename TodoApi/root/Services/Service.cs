@@ -12,6 +12,7 @@ public class TodoService
     public TodoService(
         IOptions<DatabaseSettings> DatabaseSettings)
     {
+        Console.WriteLine("Initilize Todo Service");
         var mongoClient = new MongoClient(
             DatabaseSettings.Value.ConnectionString);
 
