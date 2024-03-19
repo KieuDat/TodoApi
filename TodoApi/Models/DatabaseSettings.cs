@@ -1,17 +1,11 @@
-﻿using TodoApi.Models;
-
-namespace Api.Models;
-
+﻿namespace Database.Models;
 public class DatabaseSettings
 {
-    public string ConnectionString { get; set; } = null!;
+    public string ConnectionString { get; }
 
-    public string DatabaseName { get; set; } = null!;
-
-    public string CollectionName { get; set; } = null!;
-
-    internal Task<List<TodoItem>> GetAsync(string id)
-    {
-        throw new NotImplementedException();
-    }
+    public string DatabaseName { get; }
+    
+    public string Todo { get; }
+    public string TodoList { get; }
+    public string User { get; }
 }

@@ -1,9 +1,9 @@
 ﻿using TodoApi.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Api.Models;
+using Database.Models;
 
-namespace TodoItemApi.Services;
+namespace TodoApi.Services;
 
 public class TodoService
 {
@@ -18,7 +18,7 @@ public class TodoService
         var mongoDatabase = mongoClient.GetDatabase(
             DatabaseSettings.Value.DatabaseName);
 
-        Collection = mongoDatabase.GetCollection<TodoItem>("todo");
+        Collection = mongoDatabase.GetCollection<TodoItem>(DatabaseSettings.Value.Todo);
     }
 
     public async Task<List<TodoItem>> GetAsync() =>

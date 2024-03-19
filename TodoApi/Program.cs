@@ -1,5 +1,8 @@
-
+﻿
 using Api.Models;
+using TodoApi.Services;
+using TodoListApi.Services;
+using User.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,9 @@ builder.Services.Configure<DatabaseSettings>(
 
 builder.Services.AddSingleton<DatabaseSettings>();
 
+builder.Services.AddScoped<TodoService, TodoService>();
+builder.Services.AddScoped<UserService, UserService>();
+builder.Services.AddScoped<TodoListService, TodoListService>();
 // Add services to the container.
 
 builder.Services.AddControllers();
